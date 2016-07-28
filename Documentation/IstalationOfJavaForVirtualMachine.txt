@@ -1,0 +1,122 @@
+1. Before installing Java, make sure to first verify the version of installed Java.
+
+# java -version
+
+java version "1.7.0_75"cd
+OpenJDK Runtime Environment (IcedTea 2.5.4) (7u75-2.5.4-2)
+OpenJDK 64-Bit Server VM (build 24.75-b04, mixed mode)
+
+
+It’s clear from the output above that the installed version of Java is OpenJDK 1.7.0_75.
+
+2. Make a directory where you want to install Java. For global access (for all users) install it preferably in the directory /opt/java.
+
+		
+	# mkdir /opt/java && cd /opt/java
+
+3. Now it’s time to download Java (JDK) 8u45 source tarball files for your system architecture by going to official Java download page.
+
+For reference, we have provided the source tarball file-names, please select and download these below mentioned files only.
+
+jdk-8u45-linux-i586.tar.gz		[For 32-bit Systems]
+jdk-8u45-linux-x64.tar.gz		[For 64-bit Systems]
+
+
+Alternatively, you may use wget command to download files directly into the /opt/java directory as shown below.
+
+--------------- For 32-bit Systems ---------------
+
+# cd /opt/java
+# wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-i586.tar.gz"
+
+--------------- For 64-bit Systems --------------
+
+# cd /opt/java
+# wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
+
+4. Once file has been downloaded, you may extract the tarball using tar command as shown below.
+
+# tar -zxvf jdk-8u45-linux-i586.tar.gz		[For 32-bit Systems]
+# tar -zxvf jdk-8u45-linux-x64.tar.gz		[For 64-bit Systems]
+
+Note: I have used 64-bit tarball throughout the tutorial. If you are using 32-bit, you may change it accordingly.
+
+5. Next, move to the extracted directory and use command update-alternatives to tell system where java and its executables are installed.
+k
+# cd jdk1.8.0_45/
+# update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_45/bin/java 100  
+# update-alternatives --config java
+
+Update Java Alternatives
+
+Update Java Alternatives
+
+6. Tell system to update javac alternatives as:
+
+# update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bin/javac 100
+# update-alternatives --config javac
+
+Update Javac Alternatives
+
+Update Javac Alternatives
+
+7. Similarly, update jar alternatives as:
+
+# update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 100
+# update-alternatives --config jar
+
+Update Jar Alternatives
+
+Update Jar Alternatives
+
+8. Setting up Java Environment Variables.
+
+# export JAVA_HOME=/opt/java/jdk1.8.0_45/	
+# export JRE_HOME=/opt/java/jdk1.8.0._45/jre 	
+# export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
+
+
+9. Now You may verify the Java version again, to confirm.
+
+
+# java -version
+
+java version "1.8.0_45"
+Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
+
+Suggested: If you are not using OpenJDK (open source implementation of java), you may remove it as:
+
+# apt-get remove openjdk-*
+
+Enable Java Support in Firefox
+
+10. To enable Java 8 JDK 8u45 Support in Firefox, you need to run following commands to enable Java module for Firefox.
+On Debian, Ubuntu and Mint
+
+--------------- For 32-bit Systems ---------------
+
+# update-alternatives --install /usr/lib/mozilla/plugins/libjavaplugin.so libjavaplugin.so /opt/java/jdk1.8.0_45/jre/lib/i386/libnpjp2.so 20000
+
+--------------- For 64-bit Systems ---------------
+
+# update-alternatives --install /usr/lib/mozilla/plugins/libjavaplugin.so libjavaplugin.so /opt/java/jdk1.8.0_45/jre/lib/amd64/libnpjp2.so 20000
+
+On RHEL, CentOS and Fedora
+
+--------------- For 32-bit Systems ---------------
+
+# alternatives --install /usr/lib/mozilla/plugins/libjavaplugin.so libjavaplugin.so /opt/java/jdk1.8.0_45/jre/lib/i386/libnpjp2.so 20000
+
+--------------- For 64-bit Systems ---------------
+
+# alternatives --install /usr/lib/mozilla/plugins/libjavaplugin.so libjavaplugin.so /opt/java/jdk1.8.0_45/jre/lib/amd64/libnpjp2.so 20000
+
+11. Now verify the Java support by restarting Firefox and enter about:plugins on the address bar. You will get similar to below screen.
+Java 8 Support in Firefox
+
+Java 8 Support in Firefox
+
+
+
+
