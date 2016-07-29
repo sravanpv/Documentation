@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 Merg conflict checking
 -----------------------------------------------------------------
 MYSQL INSTALLATION LINK
+=======
+modification from git hub
+-------------------------------------------------------------------------------------------------------
+MYSQL INSTALLATIO LINK
+>>>>>>> 1893db4e031b5ba89ae5ee238800c11b4284ba0f
 
 https://www.linode.com/docs/databases/mysql/install-mysql-on-ubuntu-14-04
 
