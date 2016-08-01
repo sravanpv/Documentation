@@ -1,5 +1,5 @@
 
-modification from git hub.1
+modification from git hub(changes made to check the merge conflict)
 -------------------------------------------------------------------------------------------------------
 MYSQL INSTALLATION LINK
 
