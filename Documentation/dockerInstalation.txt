@@ -1,5 +1,6 @@
 Hello Sravan
-(Solver this merge conflict)
+#(Solver this merge conflict)
+
 Step 1: Installation of Docker
 
 First, you’ll follow a simple best practice: ensuring the list of available packages is up to date before installing anything new.
