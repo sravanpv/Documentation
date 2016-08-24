@@ -1,5 +1,5 @@
 Hello Sravan
-#(Solver this merge conflict)
+(Solver this merge conflict)
 
 Step 1: Installation of Docker
 
